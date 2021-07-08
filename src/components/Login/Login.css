@@ -1,0 +1,37 @@
+.form-input{
+    width:300px;
+    height:40px;
+    margin-top:10px;
+    outline:none;
+    border:none;
+    border-bottom: 1px solid rgb(173, 173, 173);
+    font-family: 'Courier New', Courier, monospace;
+}
+.form-input-btn{
+    background:black;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    width: 300px;
+    height:40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
+.toggle-btn{
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}
+.google-btn{
+    border:none;
+    width: 200px;
+    height:30px;
+    border-radius: 100px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.login-title{
+    margin-top: 30px;
+    margin-bottom: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}

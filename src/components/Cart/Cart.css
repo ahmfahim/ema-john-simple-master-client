@@ -1,0 +1,19 @@
+.cart-title{
+    color:goldenrod;
+    font-family: 'Courier New', Courier, monospace;
+}
+.cart-body{
+    color:goldenrod;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+span{
+    color:black;
+    font-weight: bold;
+}
+.total{
+    color:red;
+    font-weight: bold;
+    border-top: 1px solid black;
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -1,0 +1,72 @@
+.header img{
+    height: 80px;
+}
+.header{
+    text-align: center;
+}
+.header nav{
+    background-color: black;
+    line-height: 40px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    padding:6.5px;
+    padding-bottom: 5.5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+}
+nav a:hover{
+    background-color: gray;
+    height: 100%;
+}
+.sign-out-btn{
+    background:none;
+    color: white;
+    border:none;
+    font-family: 'Courier New', Courier, monospace;
+    color: goldenrod;
+}
+.profile img{
+    height: 30px;
+    margin:0px;
+    padding:0px;
+    border-radius: 100%;
+    margin-right: 10px;
+    margin-bottom: -7px;
+}
+.name{
+    color:gray;
+    font-size: 10px;
+}
+
+@media (max-width: 768px){
+    .header nav{
+        background-color: black;
+        line-height: 40px;
+    }
+    nav a{
+        text-decoration: none;
+        color: white;
+        margin-right: 1px;
+        padding:13px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 13px;
+        padding-top:16.5px ;
+    }
+    .name{
+        color:gray;
+        font-size: 10px;
+    }
+    .profile img{
+        height: 30px;
+        margin:0px;
+        padding:0px;
+        border-radius: 100%;
+        margin-right: 10px;
+        margin-bottom: -10px;
+    }
+}
