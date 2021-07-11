@@ -1,10 +1,30 @@
 import React from 'react';
-import './Inventory.css'
+import './Inventory.css';
+import fakeData from '../../fakeData';
 
 const Inventory = () => {
+    const product = {};
+    // handleAddProduct
+    const handleAddProduct = () =>{
+        fetch('http://localhost:5000/addProduct',{
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(product)
+        })
+    }
+
     return (
         <div>
-            <h1>Developer is sleeping🤦‍♂️</h1>
+
+            <form action="">
+                <p><span>Name: </span><input type="text" /></p>
+                <p><span>Price: </span><input type="text" /></p>
+                <p><span>Quantity:</span><input type="text" /></p>
+                <p><span>Product Image: </span><input type="file" /></p>
+                <button onClick={handleAddProduct}>Add Product</button>
+            </form>
+
+            
         </div>
     );
 };
