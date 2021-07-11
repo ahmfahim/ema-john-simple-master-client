@@ -1,5 +1,5 @@
-import React,{useEffect, useState} from 'react';
-import {getDatabaseCart, processOrder, removeFromDatabaseCart} from '../../utilities/databaseManager';
+import React, { useEffect, useState } from 'react';
+import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import './Review.css';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import OrderPlacedImg from '../../images/giphy.gif';
@@ -15,29 +15,29 @@ const Review = () => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
 
-        fetch('http://localhost:5000/productsByKeys',{
+        fetch('https://ema-john-store-server.herokuapp.com/productsByKeys', {
             method: 'POST',
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(productKeys)
         })
-        .then(res => res.json())
-        .then(data => setCart(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setCart(data))
+    }, [])
 
     // place order button
     const handleProceedCheckout = () => {
-       history.push('/shipment')
+        history.push('/shipment')
     }
 
     // remove button
-    const removeProduct = (productKey) =>{
+    const removeProduct = (productKey) => {
         const newCart = cart.filter(pd => pd.key !== productKey);
         setCart(newCart);
         removeFromDatabaseCart(productKey);
     }
 
     let thankyou;
-    if (placedOrder){
+    if (placedOrder) {
         thankyou = <img src={OrderPlacedImg} alt="" />
     }
 

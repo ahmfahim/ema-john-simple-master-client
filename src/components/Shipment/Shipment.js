@@ -9,20 +9,20 @@ const Shipment = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const onSubmit = data => {
         const savedCart = getDatabaseCart();
-        const orderDetails = {...loggedInUser, products: savedCart, shipment: data, orderTime: new Date()}
+        const orderDetails = { ...loggedInUser, products: savedCart, shipment: data, orderTime: new Date() }
 
-        fetch('http://localhost:5000/addOrder',{
+        fetch('https://ema-john-store-server.herokuapp.com/addOrder', {
             method: 'POST',
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(orderDetails)
         })
-        .then(res => res.json())
-        .then(data =>{
-            if(data){
-                processOrder();
-                alert("Your order Placed successfully.")
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    processOrder();
+                    alert("Your order Placed successfully.")
+                }
+            })
     };
 
     console.log(watch("example"));
@@ -30,16 +30,16 @@ const Shipment = () => {
     return (
 
         <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
-            <input defaultValue={loggedInUser.name}  {...register("name",{ required: true })} placeholder="Your name" />
+            <input defaultValue={loggedInUser.name}  {...register("name", { required: true })} placeholder="Your name" />
             {errors.name && <span className="error">Name is required</span>}
 
-            <input defaultValue={loggedInUser.email} {...register("email",{ required: true })} placeholder="Your email" />
+            <input defaultValue={loggedInUser.email} {...register("email", { required: true })} placeholder="Your email" />
             {errors.email && <span className="error">Email is required</span>}
 
-            <input  {...register("address",{ required: true })} placeholder="Your address" />
+            <input  {...register("address", { required: true })} placeholder="Your address" />
             {errors.address && <span className="error">address is required</span>}
 
-            <input  {...register("phone",{ required: true })} placeholder="Your Phone" />
+            <input  {...register("phone", { required: true })} placeholder="Your Phone" />
             {errors.phone && <span className="error">phone is required</span>}
             <input type="submit" />
         </form>

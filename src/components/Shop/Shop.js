@@ -5,27 +5,27 @@ import Cart from '../Cart/Cart';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { addToDatabaseCart , getDatabaseCart} from '../../utilities/databaseManager';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-    
+
 
     // get data from database
-    useEffect(() =>{
-        fetch('http://localhost:5000/products')
-        .then(res => res.json())
-        .then(data => {
-            setProducts(data);
-        })
-    },[])
+    useEffect(() => {
+        fetch('https://ema-john-store-server.herokuapp.com/products')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data);
+            })
+    }, [])
 
 
-    useEffect(()=>{
+    useEffect(() => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        fetch('http://localhost:5000/productsByKeys', {
+        fetch('https://ema-john-store-server.herokuapp.com/productsByKeys', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(productKeys)
@@ -57,12 +57,12 @@ const Shop = () => {
         <div className="shop-container">
             <div className="product-container">
                 {
-                    products.map(pd => <Product 
-                        key={pd.key} 
-                        showAddToCart={true} 
+                    products.map(pd => <Product
+                        key={pd.key}
+                        showAddToCart={true}
                         product={pd}
                         handleAddProduct={handleAddProduct}
-                        ></Product>)
+                    ></Product>)
                 }
             </div>
             <div className="cart-container">

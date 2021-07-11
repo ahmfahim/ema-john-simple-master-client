@@ -5,10 +5,10 @@ import fakeData from '../../fakeData';
 const Inventory = () => {
     const product = {};
     // handleAddProduct
-    const handleAddProduct = () =>{
-        fetch('http://localhost:5000/addProduct',{
+    const handleAddProduct = () => {
+        fetch('https://ema-john-store-server.herokuapp.com/addProduct', {
             method: 'POST',
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(product)
         })
     }
@@ -24,7 +24,7 @@ const Inventory = () => {
                 <button onClick={handleAddProduct}>Add Product</button>
             </form>
 
-            
+
         </div>
     );
 };
